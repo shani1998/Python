@@ -67,7 +67,19 @@ class Linked_List:
             current = next_node
         # Return prev in order to put the head at the end
         self.Head = prev
+	def reverseRecursive(self, curr, prev):
+		# If last node mark it head 
+		if curr.next is None : 
+			self.head = curr 
+			# Update next to prev node 
+			curr.next = prev 
+			return 
 
+		# Save curr.next node for recursive call 
+		next = curr.next
+		# And update next  
+		curr.next = prev
+		self.reverseRecursive(next, curr)  
 def main():
     A = Linked_List()
     print("Inserting 1st at Head")
